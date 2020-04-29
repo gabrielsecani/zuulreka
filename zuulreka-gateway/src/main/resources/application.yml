@@ -1,0 +1,29 @@
+server:
+  port: 8662
+
+spring:
+  application:
+    name: zuulreka-gateway
+
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    healthcheck:
+      enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8661/eureka}
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connectTimeoutMillis: 60000
+    socketTimeoutMillis: 500000
+  routes:
+    service:
+      path: /service/**
+      serviceId: zuulreka-service
+      stripPrefix: true

@@ -1,0 +1,23 @@
+server:
+  #port: ${random.int[7000,7099]}
+  port: 7000
+
+spring:
+  application:
+    name: zuulreka-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8661/eureka}
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+    initial-status: starting
+    #health-check-url: /actuator/health
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+
