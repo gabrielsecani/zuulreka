@@ -16,7 +16,7 @@ eureka:
       defaultZone: ${EUREKA_URI:http://localhost:8661/eureka}
   instance:
     hostname: localhost
-    preferIpAddress: true
+    preferIpAddress: false
     initial-status: starting
     #health-check-url: /actuator/health
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
