@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "zuulreka-eureka"
+		},
+		{
+			"path": "zuulreka-gateway"
+		},
+		{
+			"path": "zuulreka-service"
+		},
+		{
+			"path": "."
+		}
+	]
+}
